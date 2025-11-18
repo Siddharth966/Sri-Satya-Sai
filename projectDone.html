@@ -1,0 +1,845 @@
+<!-- Save this as project.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Project — SPM Trust Works & Programs</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ---------- Variables ---------- */
+      :root {
+        --bg: #f6fbfb;
+        --card: #ffffff;
+        --primary: #0b6b71;
+        --accent: #ff7a18;
+        --muted: #55606a;
+        --glass: rgba(255, 255, 255, 0.65);
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(14, 22, 30, 0.08);
+        --container: 1100px;
+      }
+
+      /* ---------- Reset & Base ---------- */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial;
+        background: linear-gradient(180deg, #f4fbfb 0%, #ffffff 100%);
+        color: #0e1b22;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .wrap {
+        width: 90%;
+        max-width: var(--container);
+        margin: 28px auto 80px;
+      }
+
+      /* ---------- Header ---------- */
+      header.site-header {
+        
+        top: 14px;
+        z-index: 40;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.72),
+          rgba(255, 255, 255, 0.6)
+        );
+        padding: 14px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        justify-content: space-between;
+        backdrop-filter: blur(6px);
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .brand .logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        object-fit: cover;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        display: inline-block;
+        color: white;
+        font-weight: 700;
+        font-family: Poppins;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+      .brand h1 {
+        font-size: 1.05rem;
+        margin: 0;
+        font-family: Poppins;
+      }
+      .brand p {
+        margin: 0;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      nav.topnav {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      nav.topnav a {
+        font-weight: 600;
+        color: var(--muted);
+        padding: 8px 12px;
+        border-radius: 10px;
+        transition: all 0.22s;
+      }
+      nav.topnav a:hover {
+        background: rgba(11, 107, 113, 0.06);
+        color: var(--primary);
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        margin-top: 22px;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 107, 113, 0.04),
+          rgba(255, 255, 255, 0)
+        );
+        padding: 28px;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 20px;
+        align-items: center;
+        overflow: hidden;
+      }
+      .hero-left h2 {
+        font-family: Poppins;
+        margin: 0 0 8px;
+        font-size: 1.6rem;
+        color: var(--primary);
+      }
+      .hero-left p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+        max-width: 60ch;
+      }
+      .cta-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        background: var(--primary);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 700;
+        display: inline-block;
+        transition: transform 0.18s ease;
+      }
+      .btn.secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid rgba(11, 107, 113, 0.08);
+      }
+      .btn:hover {
+        transform: translateY(-4px);
+      }
+
+      /* Hero card */
+      .hero-card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(12, 22, 32, 0.06);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .hero-card img {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      /* ---------- Sections ---------- */
+      section {
+        margin-top: 22px;
+      }
+      .section-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .section-header h3 {
+        margin: 0;
+        font-family: Poppins;
+        color: var(--primary);
+      }
+      .section-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      /* Card grid */
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 14px;
+      }
+      .card {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+        overflow: hidden;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(12, 22, 32, 0.1);
+      }
+      .card h4 {
+        margin: 0 0 8px;
+        font-family: Poppins;
+        font-size: 1.02rem;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      /* Two column layout for long text */
+      .content-two {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 18px;
+        margin-top: 12px;
+      }
+      .content-box {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        color: var(--muted);
+      }
+      .side-box {
+        background: linear-gradient(180deg, #fff, #fbfeff);
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      /* ---------- Accordion (details) ---------- */
+      details {
+        background: var(--card);
+        padding: 12px 14px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        margin-top: 10px;
+      }
+      details summary {
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+        list-style: none;
+      }
+      details[open] {
+        animation: openAnim 0.45s ease;
+      }
+      @keyframes openAnim {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* ---------- Highlights / Counters ---------- */
+      .stats {
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        flex: 1;
+        min-width: 180px;
+        background: linear-gradient(180deg, #fff, #f8fffe);
+        padding: 14px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .stat strong {
+        display: block;
+        font-size: 1.25rem;
+        color: var(--primary);
+      }
+
+      /* ---------- Media & gallery ---------- */
+      .gallery {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 12px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(12, 22, 32, 0.06);
+      }
+
+      /* ---------- Footer ---------- */
+      footer.site-footer {
+        margin-top: 26px;
+        padding: 18px;
+        background: transparent;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      /* ---------- Animations (entry) ---------- */
+      .fade-in {
+        animation: fadeIn 0.7s ease both;
+      }
+      .stagger-1 {
+        animation-delay: 0.06s;
+      }
+      .stagger-2 {
+        animation-delay: 0.12s;
+      }
+      .stagger-3 {
+        animation-delay: 0.18s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1000px) {
+        .hero {
+          grid-template-columns: 1fr 1fr;
+        }
+        .content-two {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 680px) {
+        .wrap {
+          width: 94%;
+        }
+        header.site-header {
+          flex-direction: column;
+          gap: 12px;
+          align-items: start;
+        }
+        nav.topnav {
+          width: 100%;
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery img {
+          height: 120px;
+        }
+        .brand p {
+          display: none;
+        }
+      }
+
+      /* small utility */
+      .muted {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 0.92rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <div class="wrap">
+      <!-- Header -->
+      <header class="site-header fade-in">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">S</div>
+          <div>
+            <h1>Sri Satya Sai Sanjeevani — SPM Trust</h1>
+            <p class="small muted">
+              Community health, education, sports & social welfare — Yavatmal
+            </p>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Primary">
+          <a href="#covid" class="stagger-1">Covid Initiative</a>
+          <a href="#narayan" class="stagger-2">Narayan Seva</a>
+          <a href="#cataract" class="stagger-3">Eye Camps</a>
+          <a href="#mother" class="stagger-1">Mother & Child</a>
+          <a href="#sports" class="stagger-2">Sports & Education</a>
+          <a href="#relief" class="stagger-3">Relief & Environment</a>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero fade-in">
+        <div class="hero-left">
+          <h2>Project Implemented / Completed by the Trust</h2>
+          <p class="lead">
+            In challenging times and over decades, SPM Trust delivered
+            lifesaving healthcare, food security, maternal care, education,
+            sports training and social welfare programs to thousands of families
+            across Yavatmal and beyond.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#contact">Get Involved</a>
+            <a class="btn secondary" href="#relief">Read More</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img
+            src="https://images.unsplash.com/photo-1584438789866-2b31119b5b3c?q=80&w=800&auto=format&fit=crop&s=placeholder"
+            alt="Healthcare"
+          />
+          <small class="muted"
+            >SPM Trust — community outreach & lifesaving missions</small
+          >
+        </div>
+      </section>
+
+      <!-- COVID response -->
+      <section id="covid" class="fade-in">
+        <div class="section-header">
+          <h3>1) Sai Dhanwantri Hospital — Covid Response</h3>
+          <p class="small muted">
+            Rapid, large-scale intervention during the pandemic
+          </p>
+        </div>
+
+        <div class="content-two">
+          <div class="content-box">
+            <p>
+              In a challenging situation of Covid-19, SPM Trust took initiative
+              to meet the crisis head-on. A building of
+              <strong>30,000 sq.ft.</strong> was dedicated to start a
+              full-fledged Sai Dhanwantri Covid Hospital in Yavatmal. The trust
+              procured an oxygen concentrator plant on loan of
+              <strong>Rs. 80 L</strong> and made available
+              <strong>150 beds with oxygen</strong> out of a 250-bed facility —
+              saving hundreds of lives. Services were offered at minimum fees as
+              per Govt. guidelines.
+            </p>
+
+            <details>
+              <summary>More details</summary>
+              <p class="small muted">
+                The trust also coordinated staff, logistics and affordable
+                treatment to ensure equitable access across densely affected
+                communities.
+              </p>
+            </details>
+          </div>
+
+          <aside class="side-box">
+            <h4 class="small muted">Key facts</h4>
+            <div class="stats">
+              <div class="stat">
+                <strong>150</strong
+                ><span class="small muted">beds with oxygen</span>
+              </div>
+              <div class="stat">
+                <strong>250</strong><span class="small muted">total beds</span>
+              </div>
+              <div class="stat">
+                <strong>Rs. 80L</strong
+                ><span class="small muted">oxygen plant</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Narayan Seva -->
+      <section id="narayan" class="fade-in">
+        <div class="section-header">
+          <h3>2) Sri Satya Sai Narayan Seva — Feed the Hungry (Since 1995)</h3>
+          <p class="small muted">
+            Sustained free meal service for caretakers & needy
+          </p>
+        </div>
+
+        <div class="card">
+          <p>
+            Providing free meals to needy patients' relatives/caretakers at
+            Government Medical College Yavatmal. Begun on
+            <strong>1st November 1995</strong>, the program runs continuously
+            and has served more than <strong>700,000 people</strong>. The
+            service addresses caretakers who lose income while supporting
+            hospitalized family members. The initiative drew media attention
+            during its silver jubilee and remains an emblem of the trust's
+            social commitment.
+          </p>
+        </div>
+      </section>
+
+      <!-- Eye Camps & Surgeries -->
+      <section id="cataract" class="fade-in">
+        <div class="section-header">
+          <h3>3) Eye Check-up & Surgery Camps</h3>
+          <p class="small muted">
+            Thousands of cataract patients served in rural areas
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h4>Rural Eye Camps</h4>
+            <p>
+              Health check-up camps organized across the district, providing
+              free spectacles and selecting patients for surgery.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Surgery Assistance</h4>
+            <p>
+              Free cataract and other surgical treatments offered at Yavatmal &
+              Nagpur hospitals; over <strong>3000</strong> patients benefited.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Long-term Impact</h4>
+            <p>
+              By focusing on senior citizens and the underserved, the trust
+              helped reduce avoidable blindness and restored independence to
+              many.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Mother & Child -->
+      <section id="mother" class="fade-in">
+        <div class="section-header">
+          <h3>4) Mother & Child Care</h3>
+          <p class="small muted">Free maternal care & child health services</p>
+        </div>
+
+        <div class="content-two">
+          <div class="content-box">
+            <p>
+              The Trust established Satya Sai Sanjeevani Mother & Child Hospital
+              in Yavatmal to secure healthy motherhood and childhood. Regular
+              services provided free of cost include maternal care, antenatal
+              care, ultrasonography, lab investigations, fetal
+              echo-cardiography, normal & C-section deliveries, medicines,
+              nutritional supplements, counselling and more.
+            </p>
+
+            <details>
+              <summary>Program highlights</summary>
+              <ul>
+                <li>
+                  Monthly regular medical camps in 3 public health centers and 1
+                  rural hospital
+                </li>
+                <li>
+                  Gynecologist examinations, free medication & protein
+                  supplements (Sai Sure)
+                </li>
+                <li>
+                  Over <strong>5000</strong> women examined and supported since
+                  2017
+                </li>
+              </ul>
+            </details>
+          </div>
+
+          <aside class="side-box">
+            <h4 class="small muted">Services (selected)</h4>
+            <p class="small muted">
+              Maternal care · Antenatal care · Ultrasonography · Lab tests ·
+              Obstetrics · Fetal echo · Deliveries · Medicines · Counselling
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Heart Screening -->
+      <section id="heart" class="fade-in">
+        <div class="section-header">
+          <h3>5) Heart Screening & Diagnostic Camps</h3>
+          <p class="small muted">
+            Large-scale pediatric screenings and referrals
+          </p>
+        </div>
+
+        <div class="card">
+          <p>
+            Regular heart screening camps were organized for needy children.
+            Counseling and travel arrangements were provided; over
+            <strong>100,000</strong> children were screened and
+            <strong>90</strong> critical cases were diagnosed and referred for
+            free surgery.
+          </p>
+        </div>
+      </section>
+
+      <!-- Dispensary -->
+      <section id="dispensary" class="fade-in">
+        <div class="section-header">
+          <h3>6) Charitable Dispensary (Since 1958)</h3>
+          <p class="small muted">Homeopathic services across decades</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h4>Legacy Care</h4>
+            <p>
+              A charitable homeopathic dispensary functioning for 65+ years,
+              serving over <strong>350,000</strong> patients with long-term care
+              for chronic conditions.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Common Treatments</h4>
+            <p>
+              Asthma, eczema, gastric disorders, rheumatic arthritis, chronic
+              skin conditions and more are treated affordably and respectfully.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Community Trust</h4>
+            <p>
+              The dispensary forms an essential, trust-based healthcare pillar
+              in the region.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Mass Marriages -->
+      <section id="marriage" class="fade-in">
+        <div class="section-header">
+          <h3>7) Shri Satya Sai All Religions Mass Marriage (Since 1994)</h3>
+          <p class="small muted">
+            Removing financial burden — celebrating unity
+          </p>
+        </div>
+
+        <div class="card">
+          <p>
+            To ease the heavy financial burden of marriage on poor families the
+            Trust conducts multi-religion mass marriages. The program covers
+            registration, clothing, mangalsutra, utensils and meals. Over
+            <strong>2000</strong> marriages supported, and the concept spread
+            across Maharashtra with government incentives added later.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sports -->
+      <section id="sports" class="fade-in">
+        <div class="section-header">
+          <h3>8) Sports: Building Youth & Champions</h3>
+          <p class="small muted">
+            State, national & international achievements
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h4>Grassroots Clubs</h4>
+            <p>
+              Sports clubs and district associations created to encourage youth
+              participation; over 600 players competed at state level events.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>National Recognition</h4>
+            <p>
+              150 players selected to higher levels; 11 players received state
+              awards with prize money and mementos for excellence.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>International Exposure</h4>
+            <p>
+              Players participated in international street football tournaments
+              in Germany, Australia and more — bringing pride to the region.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="fade-in">
+        <div class="section-header">
+          <h3>9) Education & Schools</h3>
+          <p class="small muted">
+            Three schools from primary to board exams — inclusive & holistic
+          </p>
+        </div>
+
+        <div class="card">
+          <p>
+            The Trust runs three schools emphasizing cultural grooming, academic
+            excellence and all-round development. Admissions are inclusive
+            regardless of caste, creed or economic status. "When one educates
+            many, one can change the world."
+          </p>
+        </div>
+      </section>
+
+      <!-- Relief & Environment -->
+      <section id="relief" class="fade-in">
+        <div class="section-header">
+          <h3>10) Disaster Relief & Environment</h3>
+          <p class="small muted">
+            Relief across national disasters and local green drives
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h4>National Calamity Response</h4>
+            <p>
+              Teams were sent to Gujarat (Bhuj earthquake), Orissa cyclone,
+              Nagapattam tsunami, and more; recognized by local officials for
+              prompt action.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Local Flood Relief</h4>
+            <p>
+              During Kolhapur, Sangli and Yavatmal floods, students and
+              volunteers collected and delivered essentials to affected
+              families.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>Tree Planting & Waste Programs</h4>
+            <p>
+              One tree per student drives, plastic elimination campaigns and
+              regular sapling distribution — building sustainable habits among
+              youth.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact / Call to action -->
+      <section id="contact" class="fade-in">
+        <div class="section-header">
+          <h3>Get Involved / Contact</h3>
+          <p class="small muted">Support programs, volunteer or donate</p>
+        </div>
+
+        <div class="content-two">
+          <div class="content-box">
+            <p>
+              <strong>To support or partner:</strong> Reach out to the trust for
+              volunteer opportunities, donations, or medical partnerships. Your
+              help restores vision, saves lives and strengthens communities.
+            </p>
+
+            <details>
+              <summary>Contact details (example)</summary>
+              <p class="small muted">
+                Email: spmtrustytl@gmail.com · Phone: +91 9763448555 /
+                9011503530 · Address: Sri Satya Sai Krida Nagari, Waghapur Road,
+                Yavatmal
+              </p>
+            </details>
+          </div>
+
+          <aside class="side-box">
+            <h4 class="small muted">Why support?</h4>
+            <ul class="small muted">
+              <li>Longstanding track record — decades of service</li>
+              <li>Large-scale measurable impact (health, education, sports)</li>
+              <li>Transparent and community-driven initiatives</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer fade-in">
+        <p class="small muted">
+          © 2025 Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani.
+          Designed for clarity, accessibility and impact.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

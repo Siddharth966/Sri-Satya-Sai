@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Sri Satya Sai Sanjeevani Eye Hospital</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: #eef7f7;
+      padding: 30px 0;
+    }
+
+    .contact-container {
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      background: hsl(60, 13%, 91%);
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0b6b71;
+      margin-bottom: 30px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-info {
+      background: #f6fbfb;
+      padding: 25px;
+      border-radius: 14px;
+      border-left: 5px solid #0b6b71;
+    }
+
+    .contact-info h2 {
+      color: #0b6b71;
+      margin-bottom: 15px;
+    }
+
+    .info-item {
+      margin-bottom: 18px;
+    }
+
+    .info-item i {
+      color: #0b6b71;
+      margin-right: 10px;
+    }
+
+    .social-links {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .fa-icon {
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0b6b71;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .fa-icon:hover {
+      background: #c1fff7;
+      transform: translateY(-4px);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: #f6fbfb;
+      padding: 25px;
+      border-radius: 14px;
+      border-left: 5px solid #0b6b71;
+    }
+
+    .contact-form h2 {
+      color: #0b6b71;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #80a5a5;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      background: #378506;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #0d6b28;
+    }
+
+    /* MAP SECTION */
+    .map {
+      margin-top: 25px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contact-container">
+    
+    <h1>Contact Us</h1>
+
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          Shri Satya Sai Vidya Nagari,<br>
+          Dr. Nandurkar Vidyalaya Campus,<br>
+          Yavatmal, Maharashtra - 445001.
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          prakashnandurkar9575@gmail.com<br>
+          spmtrustytl@gmail.com
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          9011503530, 9763448555
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-user"></i>
+          Secretary: <strong>Dr. Prakash Nandurkar</strong>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-links">
+          <a href="https://facebook.com" class="fa-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" class="fa-icon"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" class="fa-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" class="fa-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" class="fa-icon"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/919011503530" class="fa-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send us a Message</h2>
+
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <input type="text" placeholder="Subject" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Map -->
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14959.2411118624!2d78.0989895871582!3d20.390710899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3e8addfe3db15%3A0x9180a3a869c83907!2sDr.%20Bhausaheb%20Nandurkar%20School!5e0!3m2!1sen!2sin!4v1763366128999!5m2!1sen!2sin" width="1139" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>

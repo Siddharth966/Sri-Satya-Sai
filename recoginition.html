@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recognition & Certificates | SPM Trust</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header h2 {
+  margin: 0;
+  color: #0b6b71;
+  font-size: 22px;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  color: #0b6b71;
+  font-size: 28px;
+  margin: 30px 0 10px;
+  font-weight: bold;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 22px;
+  color: #333;
+  margin: 20px 20px 10px;
+  border-left: 6px solid #0b6b71;
+  padding-left: 10px;
+}
+
+/* Image Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* CSS Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  padding: 40px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox img {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+}
+
+/* Portrait gallery variant: taller image boxes for registration section */
+.gallery.portrait img {
+  height: 550px;          /* taller to simulate portrait orientation */
+  object-fit: contain;    /* show full document without cropping */
+}
+
+@media (max-width: 900px) {
+  .gallery.portrait img { height: 520px; }
+}
+
+@media (max-width: 600px) {
+  .gallery.portrait img { height: 360px; }
+}
+
+.lightbox:target {
+  display: block;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+}
+
+/* make close button more visible and tappable */
+.close-btn {
+  background: rgba(0,0,0,0.45);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Back button on the left side of lightbox */
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  background: rgba(0,0,0,0.45);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h2>Recognition & Certificates</h2>
+</div>
+
+<h1 class="page-title">Official Documents of SPM Trust</h1>
+
+<!-- PAN CARD -->
+<h2 id="pan" class="section-title">PAN Card</h2>
+<div class="gallery">
+  <a href="#img1">
+    <img src="images/pan.png" alt="PAN Card">
+  </a>
+</div>
+
+<div id="img1" class="lightbox">
+  <a href="#pan" class="close-btn">&times;</a>
+  <a href="#pan" class="back-btn">&larr; Back</a>
+  <img src="images/pan.png" alt="">
+</div>
+
+<!-- ANNEXURE DOCUMENTS -->
+<h2 id="annexure" class="section-title">Annexure Documents</h2>
+<div class="gallery">
+  <a href="#img2"><img src="images/annexure-1.png"></a>
+  <a href="#img3"><img src="images/annexure-2.png"></a>
+  <a href="#img4"><img src="images/annexure-3.png"></a>
+</div>
+
+<div id="img2" class="lightbox">
+  <a href="#annexure" class="close-btn">&times;</a>
+  <a href="#annexure" class="back-btn">&larr; Back</a>
+  <img src="images/annexure-1.png">
+</div>
+
+<div id="img3" class="lightbox">
+  <a href="#annexure" class="close-btn">&times;</a>
+  <a href="#annexure" class="back-btn">&larr; Back</a>
+  <img src="images/annexure-2.png">
+</div>
+
+<div id="img4" class="lightbox">
+  <a href="#annexure" class="close-btn">&times;</a>
+  <a href="#annexure" class="back-btn">&larr; Back</a>
+  <img src="images/annexure-3.png">
+</div>
+
+
+<div id="img5" class="lightbox">
+  <a href="#certificates" class="close-btn">&times;</a>
+  <a href="#certificates" class="back-btn">&larr; Back</a>
+  <img src="images/80g.jpg">
+</div>
+
+<div id="img6" class="lightbox">
+  <a href="#certificates" class="close-btn">&times;</a>
+  <a href="#certificates" class="back-btn">&larr; Back</a>
+  <img src="images/12a.jpg">
+</div>
+
+<!-- REGISTRATION -->
+<h2 id="registration" class="section-title">Registration Certificates</h2>
+<div class="gallery portrait">
+  <a href="#img7"><img src="images/registration.png"></a>
+  <a href="#img8"><img src="images/tax.png"></a>
+</div>
+
+<div id="img7" class="lightbox">
+  <a href="#registration" class="close-btn">&times;</a>
+  <a href="#registration" class="back-btn">&larr; Back</a>
+  <img src="images/registration.png">
+</div>
+
+<div id="img8" class="lightbox">
+  <a href="#registration" class="close-btn">&times;</a>
+  <a href="#registration" class="back-btn">&larr; Back</a>
+  <img src="images/tax.png">
+</div>
+
+</body>
+</html>

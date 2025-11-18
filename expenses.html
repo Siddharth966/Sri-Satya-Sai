@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Data Summary | SPM Trust</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #eef7f7;
+      }
+
+      .container {
+        width: 95%;
+        max-width: 1100px;
+        margin: 30px auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #0b6b71;
+        margin-bottom: 10px;
+      }
+
+      .actions {
+        text-align: right;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        padding: 10px 18px;
+        background: #0b6b71;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #094f55;
+      }
+
+      .section-title {
+        margin-top: 25px;
+        font-size: 22px;
+        color: #0b6b71;
+        border-left: 6px solid #0b6b71;
+        padding-left: 10px;
+      }
+
+      .card {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        margin-top: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.6s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+
+      thead {
+        background: #0b6b71;
+        color: white;
+      }
+
+      thead th {
+        padding: 12px;
+        font-size: 15px;
+        text-align: left;
+      }
+
+      tbody td {
+        padding: 10px;
+        border-bottom: 1px solid #cbd5d6;
+        font-size: 14px;
+      }
+
+      tr:hover td {
+        background: rgba(11, 107, 113, 0.07);
+      }
+
+      .footer {
+        margin-top: 30px;
+        text-align: center;
+        padding: 18px;
+        color: #777;
+      }
+
+      /* PRINT STYLES */
+      @media print {
+        body {
+          background: white !important;
+        }
+        .btn,
+        .actions {
+          display: none !important;
+        }
+        .card {
+          box-shadow: none !important;
+          border: 1px solid #ccc;
+          page-break-inside: avoid;
+        }
+        h1 {
+          color: black !important;
+        }
+        .section-title {
+          border-left: 4px solid black !important;
+          color: black !important;
+        }
+        table thead {
+          background: black !important;
+          color: white !important;
+        }
+        tr:hover td {
+          background: white !important;
+        }
+        .footer {
+          color: black !important;
+        }
+      }
+    </style>
+
+    <script>
+      function downloadPDF() {
+        window.print();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- PDF BUTTON -->
+      <div class="actions">
+        <button class="btn" onclick="downloadPDF()">Download / Print PDF</button>
+      </div>
+
+      <h1>Project Data Summary — SPM Trust</h1>
+
+      <!-- DATA COLLECTION -->
+      <h2 class="section-title">Data Collection & Documentation</h2>
+      <div class="card">
+        The data of patients examined, surgeries performed, and patient outcomes
+        are collected and documented properly to assess the impact across the
+        region.
+      </div>
+
+      <!-- EXPECTED PATIENTS -->
+      <h2 class="section-title">Expected Patient Details</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Per Day</th>
+              <th>Per Month</th>
+              <th>Per Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OPD / Medical Camps</td>
+              <td>300 – 400</td>
+              <td>6,000 – 8,000</td>
+              <td>70,000 – 80,000</td>
+            </tr>
+            <tr>
+              <td>Surgery</td>
+              <td>40 – 50</td>
+              <td>800 – 1,000</td>
+              <td>8,000 – 10,000</td>
+            </tr>
+            <tr>
+              <td>Student Screening</td>
+              <td>150 – 200</td>
+              <td>3,000 – 4,000</td>
+              <td>24,000 – 25,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TRAINING -->
+      <h2 class="section-title">Training & Capacity Building</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Beneficiary</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Doctors</td><td>100</td></tr>
+            <tr><td>Medical Personnel</td><td>150</td></tr>
+            <tr><td>Asha Workers</td><td>500</td></tr>
+            <tr><td>Anganwadi Sevika</td><td>500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CAPITAL COST -->
+      <h2 class="section-title">Existing Infrastructure and Facilities</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Facility</th>
+              <th>Capital Cost (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Hospital Infrastructure 30,000 Sq.ft.</td><td>₹ 6,10,00,000</td></tr>
+            <tr><td>2</td><td>Furniture, Chambers</td><td>₹ 20,00,000</td></tr>
+            <tr><td>3</td><td>Operation Theatres</td><td>₹ 20,30,000</td></tr>
+            <tr><td>4</td><td>Diagnostic & Surgical Equipment</td><td>₹ 60,00,000</td></tr>
+            <tr><td>5</td><td>Ambulance</td><td>₹ 18,00,000</td></tr>
+            <tr><td>6</td><td>Bus (Transportation)</td><td>₹ 20,00,000</td></tr>
+            <tr><td>7</td><td>Training Facilities</td><td>₹ 4,00,000</td></tr>
+          </tbody>
+          <tfoot>
+            <tr style="background:#eaf3f3; font-weight:bold;">
+              <td colspan="2">Total</td>
+              <td>₹ 7,52,30,000</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- OPERATIONAL COST -->
+      <h2 class="section-title">Funding Requests</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Cost (INR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Operational cost for 10,000 Cataract Patients @ ₹5400 each</td>
+              <td>₹ 5,40,00,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- NEW EXPENSE SECTION -->
+      <h2 class="section-title">Details of Expenses per Patient Surgery</h2>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Expense Category</th>
+              <th>Total Cost (Rs.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Personnel Program (Surgeons, Doctors, Support Staff)</td>
+              <td>1548</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Administration (PR, Security, Housekeeping)</td>
+              <td>422.40</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Medical Consumables (Lenses, Medicines, Spectacles, Printing, Disposables)</td>
+              <td>2654.40</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Overhead Cost (Electricity, Water, Tea, Meals)</td>
+              <td>774</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr style="background:#eaf3f3; font-weight:bold;">
+              <td colspan="2">Grand Total</td>
+              <td>₹ 5,398.80</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+       <!-- CONCLUSION -->
+      <h2 class="section-title">Conclusion</h2>
+      <div class="card">
+        We seek financial support from you / your esteemed organization to help
+        realise this noble initiative. CSR funding will be utilized for medical
+        equipment, surgeries, OPD facilities, and outreach vehicles. Funds will
+        be allocated as per Annexure.
+      </div>
+
+      <div class="footer">© 2025 SPM Trust — Static PDF/Print-Friendly Version</div>
+    </div>
+  </body>
+</html>

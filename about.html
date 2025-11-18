@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+   <link rel="stylesheet" href="styles.css" />
+   <style>
+  *{
+    margin:0; padding:0; box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+  }
+  
+  body{
+    background:#f4f6f9;
+    color:#333;
+  }
+
+  .wrapper{
+    width:95%;
+    max-width:1200px;
+    margin:40px auto;
+  }
+
+  h1{
+    text-align:center;
+    font-size:32px;
+    color:#0b6b71;
+    margin-bottom:20px;
+  }
+
+  .section{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:24px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+    animation:fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  @keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-40px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity:0; transform:translateX(40px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+
+  @keyframes scaleUp {
+    from { opacity:0; transform:scale(0.95); }
+    to { opacity:1; transform:scale(1); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(11,107,113,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(11,107,113,0); }
+  }
+
+  .section-title{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:15px;
+    color:#0b6b71;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .section-title span{
+    width:12px;
+    height:12px;
+    background:#0b6b71;
+    border-radius:50%;
+    animation: pulse 2s ease infinite;
+  }
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .two-col > div {
+    opacity: 0;
+  }
+
+  .two-col > div.animate-left {
+    animation: slideInLeft 0.6s ease forwards;
+  }
+
+  .two-col > div:nth-child(2).animate-right {
+    animation: slideInRight 0.6s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  @media(max-width:800px){
+    .two-col{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .info-box{
+    background:linear-gradient(135deg, #f7fbfb 0%, #e8f4f6 100%);
+    border-left:4px solid #0b6b71;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:10px;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .info-box.animate-scale {
+    animation: scaleUp 0.5s ease forwards;
+  }
+
+  .info-box:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(11,107,113,0.1);
+  }
+
+  dt{ font-weight:600; margin-bottom:2px; color:#0b6b71; }
+  dd{ margin-bottom:14px; color:#555; }
+
+  .contact-link{
+    color:#0054d1;
+    text-decoration:none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .contact-link:hover {
+    color:#0b6b71;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .donor-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .donor{
+    padding:10px 16px;
+    background:linear-gradient(135deg, #e7f0f0 0%, #d4e9eb 100%);
+    color:#0b6b71;
+    font-weight:600;
+    border-radius:8px;
+    border:2px solid transparent;
+    transition: all 0.3s ease;
+    animation: scaleUp 0.5s ease;
+  }
+
+  .donor:hover {
+    border-color:#0b6b71;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(11,107,113,0.15);
+  }
+
+  .achievement-box{
+    padding:16px;
+    background:linear-gradient(135deg, #fff2ea 0%, #ffe8d6 100%);
+    border-left:4px solid #b34b3b;
+    border-radius:10px;
+    color:#663333;
+    animation: slideInLeft 0.6s ease;
+    transition: all 0.3s ease;
+  }
+
+  .achievement-box:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(179,75,59,0.15);
+  }
+
+  .summary-card{
+    background:linear-gradient(135deg, #ffffff 0%, #f0f9f9 100%);
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    border-left:5px solid #0b6b71;
+    animation: scaleUp 0.6s ease;
+    transition: all 0.3s ease;
+  }
+
+  .summary-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 28px rgba(11,107,113,0.15);
+  }
+
+</style>
+</head>
+<body>
+  
+  <!-- navbar -->
+
+     <section class="hero">
+  <div class="hero-content">
+    <h1>SRI SATYA SAI SANJEEVANI
+EYE HOSPITAL
+</h1>
+    <p>
+     We provide free, accessible eye-care services to underprivileged and socio-economically weaker communities. Our mission is to prevent avoidable blindness through cataract surgeries, awareness programs, and regular eye check-ups. We aim to build a super specialty eye hospital offering advanced treatment for various eye diseases, ensuring quality vision care for all.
+    </p>
+  </div>
+
+  <div class="hero-image">
+    <img src="hero.jpg" alt="Girls walking">
+  </div>
+</section>
+
+
+
+
+<!-- About Us -->
+
+<section class="about-section">
+
+  <h2 class="about-title">About Us</h2>
+
+  <div class="about-content">
+
+    <div class="about-left">
+      <p>
+        To provide free eye-care facilities to restore and ensure eyesight for 
+        underprivileged, socio-economically weaker, and neglected sections of society. 
+        We aim to eradicate blindness through cataract surgeries and promote awareness 
+        on the importance of eye health.
+      </p>
+    </div>
+
+    <div class="about-right">
+      <p>
+        We conduct awareness programs, regular check-ups, and educational campaigns in 
+        rural and urban areas. Our goal is to establish a super-speciality eye hospital 
+        to treat minor to major eye diseases for the underprivileged community.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+
+  <h2 class="about-title">Vision & Mission</h2>
+
+  <div class="about-content">
+
+    <div class="about-left">
+      <p>
+       Our mission is to provide free, accessible, and high-quality eye-care facilities to restore and protect the vision of underprivileged, socio-economically weaker, and neglected sections of society.Through dedicated outreach, we identify individuals suffering from preventable eye conditions and offer them timely diagnosis and treatment. Our focus includes early detection, comprehensive check-ups, corrective measures, and surgical interventions for conditions such as cataracts—the leading cause of blindness in India.
+      </p>
+    </div>
+
+    <div class="about-right">
+      <p>
+       Along with treatment, we aim to promote awareness about the importance of eye health, preventive care, and regular screening through educational programs and community-based initiatives. By collaborating with local healthcare workers, volunteers, and rural networks, we strive to reach remote and underserved areas. Our long-term vision is to establish a super-speciality eye hospital that provides world-class care for both minor and major eye diseases, empowering individuals with the gift of sight and a brighter future.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+
+  <h2 class="about-title">Goals & Objective</h2>
+
+  <div class="about-content">
+
+    <div class="about-left">
+      <p>
+       We aim to eliminate avoidable blindness by providing timely cataract surgeries and promoting awareness about eye health and regular check-ups. Through eye camps, educational programs, and community outreach, we support rural, urban, and underprivileged populations.
+      </p>
+    </div>
+
+    <div class="about-right">
+      <p>
+        Our Objective is to establish a super speciality eye hospital offering comprehensive treatment for minor to major eye diseases, ensuring accessible care for all.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Leadership Team Section -->
+<section class="team-section">
+  <h2 class="team-title">Leadership Team</h2>
+  
+  <div class="team-container">
+
+    <div class="team-card">
+      <img src="logo.png" alt="Leader Image">
+      <h3>Dr. Prakash Nandurkar</h3>
+      <p>Secretary</p>
+    </div>
+
+    <div class="team-card">
+      <img src="hero.jpg" alt="Leader Image">
+      <h3>Shri XYZ Name</h3>
+      <p>President</p>
+    </div>
+
+    <div class="team-card">
+      <img src="leader3.jpg" alt="Leader Image">
+      <h3>Shri ABC Name</h3>
+      <p>Coordinator</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrapper">
+
+  <h1>Organization Details</h1>
+
+  <!-- SECTION 1: HEADER -->
+  <div class="section">
+    <div class="section-title"><span></span>Organization Overview</div>
+    <div class="info-box">
+      <strong>Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital</strong><br>
+      Vision for All — Free Eye Care Initiative<br>
+      Location: Sri Satya Sai Vidya Nagari, Dr. Nandurkar Vidyalaya Campus, Yavatmal, Maharashtra - 445001.
+    </div>
+  </div>
+
+  <!-- SECTION 2: COMMUNICATION DETAILS -->
+  <div class="section">
+    <div class="section-title"><span></span>Communication Details</div>
+
+    <dl>
+      <dt>Email:</dt>
+      <dd>
+        <a class="contact-link" href="mailto:prakashnandurkar9575@gmail.com">prakashnandurkar9575@gmail.com</a>,
+        <a class="contact-link" href="mailto:spmtrustytl@gmail.com">spmtrustytl@gmail.com</a>
+      </dd>
+
+      <dt>Phone Numbers:</dt>
+      <dd>
+        <a class="contact-link" href="tel:+919011503530">9011503530</a>,
+        <a class="contact-link" href="tel:+919763448555">9763448555</a>
+      </dd>
+    </dl>
+  </div>
+
+  <!-- SECTION 3: REGISTRATION DETAILS -->
+  <div class="section">
+    <div class="section-title"><span></span>Trust Registrations & Legal Information</div>
+
+    <div class="two-col">
+
+      <div>
+        <dl>
+          <dt>Legal Status:</dt>
+          <dd>Public Trust</dd>
+
+          <dt>Public Trust Registration No.:</dt>
+          <dd>F/40.ytl (4/10/1962)</dd>
+
+          <dt>Society Registration No.:</dt>
+          <dd>39/1955-5 (24/8/1955)</dd>
+
+          <dt>12A Registration:</dt>
+          <dd>4/0005/12A/47/95-96/S-608 (14/8/1996)</dd>
+        </dl>
+      </div>
+
+      <div>
+        <dl>
+          <dt>80G Registration:</dt>
+          <dd>ITBA/EXM/S/80G/2019-20/1016482559(1)</dd>
+
+          <dt>PAN No.:</dt>
+          <dd>AAFTS0166E</dd>
+
+          <dt>Niti Aayog Registration:</dt>
+          <dd>Unique ID: MH/2014/0084891</dd>
+
+          <dt>CSR Registration No.:</dt>
+          <dd>CSR 00007572 (03/06/20-21)</dd>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: DONORS -->
+  <div class="section">
+    <div class="section-title"><span></span>Major Donor Partners</div>
+
+    <div class="donor-badges">
+      <div class="donor">National Stock Exchange, Mumbai</div>
+      <div class="donor">Owens Corning India, Mumbai</div>
+      <div class="donor">Ekam Foundation, Mumbai</div>
+      <div class="donor">Black & Veatch Pvt. Ltd., Mumbai</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ACHIEVEMENT -->
+  <div class="section">
+    <div class="section-title"><span></span>Major Achievement</div>
+
+    <div class="achievement-box">
+      Govt. of Maharashtra honoured the trust with the prestigious <strong>“Shahu, Phule, Ambedkar Award 2022-23”</strong>
+      with a Cash Prize of Rs. 7,50,000/- for outstanding social services, felicitated by:
+      <br><br>
+      • Chief Minister Shri Eknath Shinde<br>
+      • Dy. CM Shri Ajit Pawar<br>
+      • Dy. CM Shri Devendra Fadnavis
+    </div>
+  </div>
+
+  <!-- SECTION 6: SUMMARY CARD -->
+  <div class="section">
+    <div class="section-title"><span></span>Quick Summary</div>
+
+    <div class="summary-card">
+      <strong>Secretary:</strong> Dr. Prakash Nandurkar<br>
+      Contact: <a class="contact-link" href="tel:+919011503530">9011503530</a><br><br>
+
+      This organization has been serving the community through eye care services, social activities,
+      nutrition support, education, and medical outreach for decades under trusted leadership.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Scroll-triggered animations using IntersectionObserver
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate sections
+        if (entry.target.classList.contains('section')) {
+          entry.target.classList.add('animate-fade');
+        }
+        // Animate about sections
+        if (entry.target.classList.contains('about-section')) {
+          const left = entry.target.querySelector('.about-left');
+          const right = entry.target.querySelector('.about-right');
+          if (left) left.style.animation = 'slideFromLeft 0.8s ease-out forwards';
+          if (right) right.style.animation = 'slideFromRight 0.8s ease-out forwards';
+        }
+        // Animate team cards
+        if (entry.target.classList.contains('team-card')) {
+          entry.target.style.animation = 'scaleUp 0.5s ease forwards';
+        }
+        // Animate info boxes
+        if (entry.target.classList.contains('info-box')) {
+          entry.target.classList.add('animate-scale');
+        }
+        // Animate two-col items
+        if (entry.target.classList.contains('two-col')) {
+          const items = entry.target.querySelectorAll('div');
+          items.forEach((item, idx) => {
+            if (idx === 0) {
+              item.classList.add('animate-left');
+              item.style.animationDelay = '0s';
+            } else {
+              item.classList.add('animate-right');
+              item.style.animationDelay = '0.2s';
+            }
+          });
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animatable elements
+  document.querySelectorAll('.section, .about-section, .team-card, .info-box, .two-col').forEach(el => {
+    observer.observe(el);
+  });
+</script>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awards & Achievements | SPM Trust</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #eef7f7;
+      }
+
+      .container {
+        width: 94%;
+        max-width: 1200px;
+        margin: 30px auto;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        color: #0b6b71;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #444;
+        margin-bottom: 30px;
+        font-size: 17px;
+      }
+
+      /* Section Title */
+      .section-title {
+        font-size: 24px;
+        color: #0b6b71;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-left: 6px solid #0b6b71;
+        padding-left: 12px;
+      }
+
+      /* Awards Grid */
+      .award-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 22px;
+        margin-top: 15px;
+      }
+
+      .award-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
+        transition: 0.35s;
+      }
+
+      .award-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .award-image {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        transition: 0.4s ease;
+      }
+
+      .award-card:hover .award-image {
+        transform: scale(1.06);
+      }
+
+      /* Government of India cards: full certificate fit */
+      #goi-section ~ .award-grid .award-image {
+        height: 580px;
+        object-fit: contain;
+        background: #f9f9f9;
+        padding: 8px;
+      }
+
+      .award-content {
+        padding: 16px;
+      }
+
+      .award-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #0b6b71;
+      }
+
+      .award-desc {
+        font-size: 14px;
+        margin-top: 8px;
+        color: #444;
+        line-height: 1.5;
+      }
+
+      /* Responsive fix */
+      @media (max-width: 480px) {
+        .award-image {
+          height: 160px;
+        }
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Awards & Achievements</h1>
+      <p class="subtitle">
+        Recognitions received from Government of Maharashtra & Government of
+        India
+      </p>
+
+      <!-- Maharashtra Government Awards -->
+      <h2 class="section-title">🏅 Maharashtra Government Awards</h2>
+      <div class="award-grid">
+        <div class="award-card">
+          <img src="images/awd1.png" class="award-image" />
+          <div class="award-content">
+            <div class="award-title">Shahu,Phule,Ambedkar Award 2022-23</div>
+            <div class="award-desc">
+              Govt. of Maharashtra honoured the trust with the prestigious “
+              Shahu,Phule,Ambedkar Award 2022-23” for outstanding social
+              services feleciated by Chief Minister & Dy. C.M.
+            </div>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <img src="images/awd2.png" class="award-image" />
+          <div class="award-content">
+            <div class="award-title">Certificate of Appreciation</div>
+            <div class="award-desc">
+              Awarded in recognition of outstanding commitment and valuable
+              contribution to community service.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Government of India Awards -->
+      <h2 id="goi-section" class="section-title">
+        Government of Maharashtra Recognitions
+      </h2>
+      <div class="award-grid">
+        <div class="award-card">
+          <img src="images/awd3.png" class="award-image" />
+          <div class="award-content">
+            <div class="award-title">“Shahu,Phule,Ambedkar Award 2022-23”</div>
+            <div class="award-desc">
+               Certificates given by Govt. of Maharashtra honoured the trust with the prestigious for outstanding social
+              services 
+            </div>
+          </div>
+        </div>
+
+        <div class="award-card">
+          <img src="award6.jpg" class="award-image" />
+          <div class="award-content">
+            <div class="award-title">National Excellence in Education</div>
+            <div class="award-desc">
+              Recognized for transforming education through inclusive and
+              accessible schooling for rural students.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>© 2025 SPM Trust — Awards & Achievements Section</footer>
+    </div>
+  </body>
+</html>

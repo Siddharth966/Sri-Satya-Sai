@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPM Trust | Gallery</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #eef7f7;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: #0b6b71;
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: 25px;
+    color: #0b6b71;
+    margin: 30px 0 15px;
+    border-left: 6px solid #0b6b71;
+    padding-left: 10px;
+  }
+
+  /* Gallery Grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+    justify-items: stretch;
+  }
+
+  /* Gallery Cards */
+  .card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+    transition: 0.35s ease;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.20);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.4s;
+  }
+
+  .card:hover img {
+    transform: scale(1.06);
+  }
+
+  .desc {
+    padding: 14px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform: translateY(15px);}
+    to {opacity:1; transform: translateY(0);}
+  }
+
+  footer {
+    text-align: center;
+    padding: 18px;
+    color: #777;
+    margin-top: 40px;
+  }
+
+  /* Override card image size and responsive grid */
+  .card img { height: 260px; }
+
+  @media (max-width: 1000px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .card img { height: 220px; }
+  }
+
+  @media (max-width: 600px) {
+    .gallery { grid-template-columns: 1fr; }
+    .card img { height: 180px; }
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Gallery</h1>
+
+  <!-- SOCIAL SERVICES -->
+  <h2 class="section-title">Social Services</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="images/serve1.jpg">
+      <div class="desc">Narayan Seva — free meals for 7,00,000+ people.</div>
+    </div>
+    <div class="card">
+      <img src="images/serve2.jpg">
+      <div class="desc">Food support for needy rural families.</div>
+    </div>
+    <div class="card">
+      <img src="images/serve3.jpg">
+      <div class="desc">Support for patient's caretakers in hospitals.</div>
+    </div>
+     <div class="card">
+      <img src="images/serve4.jpg">
+      <div class="desc">Narayan Seva — free meals for 7,00,000+ people.</div>
+    </div>
+     <div class="card">
+      <img src="images/serve5.jpg">
+      <div class="desc">Narayan Seva — free meals for 7,00,000+ people.</div>
+    </div>
+     <div class="card">
+      <img src="images/serve6.jpg">
+      <div class="desc">Narayan Seva — free meals for 7,00,000+ people.</div>
+    </div>
+  </div>
+
+  <!-- RELIGIOUS MARRIAGE SERVICES -->
+  <h2 class="section-title">Religious Marriage Services</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="images/merriage1.jpg">
+      <div class="desc">All-religion mass marriage ceremony.</div>
+    </div>
+    <div class="card">
+      <img src="images/merriage2.jpg">
+      <div class="desc">Free marriage support for underprivileged families.</div>
+    </div>
+      <div class="card">
+      <img src="images/merriage3.jpg">
+      <div class="desc">All-religion mass marriage ceremony.</div>
+    </div>
+    <div class="card">
+      <img src="images/merriage4.jpg">
+      <div class="desc">Free marriage support for underprivileged families.</div>
+    </div>
+      <div class="card">
+      <img src="images/merriage5.jpg">
+      <div class="desc">All-religion mass marriage ceremony.</div>
+    </div>
+    <div class="card">
+      <img src="images/merriage6.jpg">
+      <div class="desc">Free marriage support for underprivileged families.</div>
+    </div>
+  </div> 
+
+  <!-- SPORTS -->
+  <h2 class="section-title">Sports Development</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="images/sports1.jpg">
+      <div class="desc">State-level sports tournaments organized.</div>
+    </div>
+    <div class="card">
+      <img src="images/sports2.jpg">
+      <div class="desc">Training programs for rural youth athletes.</div>
+    </div>
+    <div class="card">
+      <img src="images/sports3.jpg">
+      <div class="desc">Players selected for national & international teams.</div>
+    </div>
+  </div>
+
+  <!-- MEDICAL CAMPS -->
+  <h2 class="section-title">Medical Camps</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="images/medical1.jpeg">
+      <div class="desc">Healthcare camps in rural villages.</div>
+    </div>
+    <div class="card">
+      <img src="images/medical2.jpg">
+      <div class="desc">Mother & child nutrition and health services.</div>
+    </div>
+        <div class="card">
+      <img src="images/medical3.jpg">
+      <div class="desc">Healthcare camps in rural villages.</div>
+    </div>
+    <div class="card">
+      <img src="images/medical4.jpg">
+      <div class="desc">Mother & child nutrition and health services.</div>
+    </div>
+        <div class="card">
+      <img src="images/medical5.jpg">
+      <div class="desc">Healthcare camps in rural villages.</div>
+    </div>
+    <div class="card">
+      <img src="images/medical6.jpg">
+      <div class="desc">Mother & child nutrition and health services.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
