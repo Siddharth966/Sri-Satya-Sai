@@ -1,224 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recognition & Certificates | SPM Trust</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recognition & Certificates | SPM Trust</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+      }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-}
+      /* Header */
+      .header {
+        background: white;
+        padding: 15px 20px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-/* Header */
-.header {
-  background: white;
-  padding: 15px 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+      .header h2 {
+        margin: 0;
+        color: #0b6b71;
+        font-size: 22px;
+      }
 
-.header h2 {
-  margin: 0;
-  color: #0b6b71;
-  font-size: 22px;
-}
+      /* Page Title */
+      .page-title {
+        text-align: center;
+        color: #0b6b71;
+        font-size: 28px;
+        margin: 30px 0 10px;
+        font-weight: bold;
+      }
 
-/* Page Title */
-.page-title {
-  text-align: center;
-  color: #0b6b71;
-  font-size: 28px;
-  margin: 30px 0 10px;
-  font-weight: bold;
-}
+      /* Section Title */
+      .section-title {
+        font-size: 22px;
+        color: #333;
+        margin: 20px 20px 10px;
+        border-left: 6px solid #0b6b71;
+        padding-left: 10px;
+      }
 
-/* Section Title */
-.section-title {
-  font-size: 22px;
-  color: #333;
-  margin: 20px 20px 10px;
-  border-left: 6px solid #0b6b71;
-  padding-left: 10px;
-}
+      /* Image Grid */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+        padding: 20px;
+      }
 
-/* Image Grid */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
-  padding: 20px;
-}
+      .gallery img {
+        width: 100%;
+        height: 350px;
+        object-fit: contain;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
 
-.gallery img {
-  width: 100%;
-  height: 350px;
-  object-fit: contain;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
+      .gallery img:hover {
+        transform: scale(1.03);
+      }
 
-.gallery img:hover {
-  transform: scale(1.03);
-}
+      /* CSS Lightbox */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        padding: 40px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.9);
+      }
 
-/* CSS Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 99999;
-  padding: 40px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.9);
-}
+      .lightbox img {
+        margin: auto;
+        display: block;
+        width: 90%;
+        max-width: 900px;
+      }
 
-.lightbox img {
-  margin: auto;
-  display: block;
-  width: 90%;
-  max-width: 900px;
-}
+      /* Portrait gallery variant: taller image boxes for registration section */
+      .gallery.portrait img {
+        height: 550px; /* taller to simulate portrait orientation */
+        object-fit: contain; /* show full document without cropping */
+      }
 
-/* Portrait gallery variant: taller image boxes for registration section */
-.gallery.portrait img {
-  height: 550px;          /* taller to simulate portrait orientation */
-  object-fit: contain;    /* show full document without cropping */
-}
+      @media (max-width: 900px) {
+        .gallery.portrait img {
+          height: 520px;
+        }
+      }
 
-@media (max-width: 900px) {
-  .gallery.portrait img { height: 520px; }
-}
+      @media (max-width: 600px) {
+        .gallery.portrait img {
+          height: 360px;
+        }
+      }
 
-@media (max-width: 600px) {
-  .gallery.portrait img { height: 360px; }
-}
+      .lightbox:target {
+        display: block;
+      }
 
-.lightbox:target {
-  display: block;
-}
+      /* Close button */
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        color: white;
+        text-decoration: none;
+      }
 
-/* Close button */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 40px;
-  color: white;
-  text-decoration: none;
-}
+      /* make close button more visible and tappable */
+      .close-btn {
+        background: rgba(0, 0, 0, 0.45);
+        padding: 6px 10px;
+        border-radius: 6px;
+      }
 
-/* make close button more visible and tappable */
-.close-btn {
-  background: rgba(0,0,0,0.45);
-  padding: 6px 10px;
-  border-radius: 6px;
-}
+      /* Back button on the left side of lightbox */
+      .back-btn {
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.45);
+        padding: 8px 12px;
+        border-radius: 6px;
+      }
+       /* Marquee Container */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background: #0b6b71;
+        padding: 8px 0;
+        position: relative;
+      }
 
-/* Back button on the left side of lightbox */
-.back-btn {
-  position: absolute;
-  top: 15px;
-  left: 25px;
-  font-size: 18px;
-  color: white;
-  text-decoration: none;
-  background: rgba(0,0,0,0.45);
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-</style>
-</head>
-<body>
+      /* Track */
+      .marquee-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollLoop 15s linear infinite;
+      }
 
-<!-- Header -->
-<div class="header">
-  <h2>Recognition & Certificates</h2>
-</div>
+      /* Text */
+      .marquee-track span {
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+      }
 
-<h1 class="page-title">Official Documents of SPM Trust</h1>
+      /* Continuous Loop Animation */
+      @keyframes scrollLoop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+       <!-- navbar -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Sri Satya Sai logo" class="logo" />
+        </a>
 
-<!-- PAN CARD -->
-<h2 id="pan" class="section-title">PAN Card</h2>
-<div class="gallery">
-  <a href="#img1">
-    <img src="images/pan.png" alt="PAN Card">
-  </a>
-</div>
+        <input type="checkbox" id="menu-check" class="menu-check" />
 
-<div id="img1" class="lightbox">
-  <a href="#pan" class="close-btn">&times;</a>
-  <a href="#pan" class="back-btn">&larr; Back</a>
-  <img src="images/pan.png" alt="">
-</div>
+        <label for="menu-check" class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
 
-<!-- ANNEXURE DOCUMENTS -->
-<h2 id="annexure" class="section-title">Annexure Documents</h2>
-<div class="gallery">
-  <a href="#img2"><img src="images/annexure-1.png"></a>
-  <a href="#img3"><img src="images/annexure-2.png"></a>
-  <a href="#img4"><img src="images/annexure-3.png"></a>
-</div>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
 
-<div id="img2" class="lightbox">
-  <a href="#annexure" class="close-btn">&times;</a>
-  <a href="#annexure" class="back-btn">&larr; Back</a>
-  <img src="images/annexure-1.png">
-</div>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Resources</a>
+            <div class="dropdown-content">
+              <a href="gallery.html">Gallery</a>
+              <a href="goals.html">News</a>
+            </div>
+          </div>
 
-<div id="img3" class="lightbox">
-  <a href="#annexure" class="close-btn">&times;</a>
-  <a href="#annexure" class="back-btn">&larr; Back</a>
-  <img src="images/annexure-2.png">
-</div>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Support Us</a>
+            <div class="dropdown-content">
+              <a href="partnerships.html">Partnerships</a>
+              <a href="vision.html">Volunteering</a>
+              <a href="goals.html">Donations</a>
+            </div>
+          </div>
 
-<div id="img4" class="lightbox">
-  <a href="#annexure" class="close-btn">&times;</a>
-  <a href="#annexure" class="back-btn">&larr; Back</a>
-  <img src="images/annexure-3.png">
-</div>
+          <a href="recoginition.html">Recognitions</a>
 
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Our Work</a>
+            <div class="dropdown-content">
+              <a href="projectDone.html">Activities</a>
+              <a href="expenses.html">Expenses</a>
+              <a href="achievements.html">Achievements</a>
+            </div>
+          </div>
+          <a href="contactUs.html">Contact Us</a>
+        </nav>
+        <a href="#"><Button class="footer-btn">❤️DONATE</Button></a>
+      </div>
+    </header>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <span>
+          Welcome to Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye
+          Hospital • Vision for All — Free Eye Care Initiative • Welcome to
+          Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital •
+          Vision for All — Free Eye Care Initiative •
+        </span>
+      </div>
+    </div>
+    <!-- Header -->
+    <div class="header">
+      <h2>Recognition & Certificates</h2>
+    </div>
 
-<div id="img5" class="lightbox">
-  <a href="#certificates" class="close-btn">&times;</a>
-  <a href="#certificates" class="back-btn">&larr; Back</a>
-  <img src="images/80g.jpg">
-</div>
+    <h1 class="page-title">Official Documents of SPM Trust</h1>
 
-<div id="img6" class="lightbox">
-  <a href="#certificates" class="close-btn">&times;</a>
-  <a href="#certificates" class="back-btn">&larr; Back</a>
-  <img src="images/12a.jpg">
-</div>
+    <!-- PAN CARD -->
+    <h2 id="pan" class="section-title">PAN Card</h2>
+    <div class="gallery">
+      <a href="#img1">
+        <img src="images/pan.png" alt="PAN Card" />
+      </a>
+    </div>
 
-<!-- REGISTRATION -->
-<h2 id="registration" class="section-title">Registration Certificates</h2>
-<div class="gallery portrait">
-  <a href="#img7"><img src="images/registration.png"></a>
-  <a href="#img8"><img src="images/tax.png"></a>
-</div>
+    <div id="img1" class="lightbox">
+      <a href="#pan" class="close-btn">&times;</a>
+      <a href="#pan" class="back-btn">&larr; Back</a>
+      <img src="images/pan.png" alt="" />
+    </div>
 
-<div id="img7" class="lightbox">
-  <a href="#registration" class="close-btn">&times;</a>
-  <a href="#registration" class="back-btn">&larr; Back</a>
-  <img src="images/registration.png">
-</div>
+    <!-- ANNEXURE DOCUMENTS -->
+    <h2 id="annexure" class="section-title">Annexure Documents</h2>
+    <div class="gallery">
+      <a href="#img2"><img src="images/annexure-1.png" /></a>
+      <a href="#img3"><img src="images/annexure-2.png" /></a>
+      <a href="#img4"><img src="images/annexure-3.png" /></a>
+    </div>
 
-<div id="img8" class="lightbox">
-  <a href="#registration" class="close-btn">&times;</a>
-  <a href="#registration" class="back-btn">&larr; Back</a>
-  <img src="images/tax.png">
-</div>
+    <div id="img2" class="lightbox">
+      <a href="#annexure" class="close-btn">&times;</a>
+      <a href="#annexure" class="back-btn">&larr; Back</a>
+      <img src="images/annexure-1.png" />
+    </div>
 
-</body>
+    <div id="img3" class="lightbox">
+      <a href="#annexure" class="close-btn">&times;</a>
+      <a href="#annexure" class="back-btn">&larr; Back</a>
+      <img src="images/annexure-2.png" />
+    </div>
+
+    <div id="img4" class="lightbox">
+      <a href="#annexure" class="close-btn">&times;</a>
+      <a href="#annexure" class="back-btn">&larr; Back</a>
+      <img src="images/annexure-3.png" />
+    </div>
+
+    <div id="img5" class="lightbox">
+      <a href="#certificates" class="close-btn">&times;</a>
+      <a href="#certificates" class="back-btn">&larr; Back</a>
+      <img src="images/80g.jpg" />
+    </div>
+
+    <div id="img6" class="lightbox">
+      <a href="#certificates" class="close-btn">&times;</a>
+      <a href="#certificates" class="back-btn">&larr; Back</a>
+      <img src="images/12a.jpg" />
+    </div>
+
+    <!-- REGISTRATION -->
+    <h2 id="registration" class="section-title">Registration Certificates</h2>
+    <div class="gallery portrait">
+      <a href="#img7"><img src="images/registration.png" /></a>
+      <a href="#img8"><img src="images/tax.png" /></a>
+    </div>
+
+    <div id="img7" class="lightbox">
+      <a href="#registration" class="close-btn">&times;</a>
+      <a href="#registration" class="back-btn">&larr; Back</a>
+      <img src="images/registration.png" />
+    </div>
+
+    <div id="img8" class="lightbox">
+      <a href="#registration" class="close-btn">&times;</a>
+      <a href="#registration" class="back-btn">&larr; Back</a>
+      <img src="images/tax.png" />
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Column 1: Logo + Trust Info -->
+        <div class="footer-col">
+          <img src="logo.png" alt="Hospital Logo" class="footer-logo" />
+          <h3>Satchikitsa Prasarak Mandal</h3>
+          <p><strong>Sri Satya Sai Sanjeevani Eye Hospital</strong></p>
+          <p>
+            Shri Satya Sai Vidya Nagari,<br />
+            Dr. Nandurkar Vidyalaya Campus,<br />
+            Yavatmal, Maharashtra - 445001.
+          </p>
+          <p class="footer-tagline">
+            Vision for All — Free Eye Care & Social Service Initiative
+          </p>
+
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/"
+              class="fa-icon"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://twitter.com/" class="fa-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              class="fa-icon"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              class="fa-icon"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://www.youtube.com/"
+              class="fa-icon"
+              aria-label="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul class="footer-list">
+            <li><a href="about.html">Who We Are</a></li>
+            <li><a href="about.html">Vision & Mission</a></li>
+            <li><a href="about.html">Goals & Objectives</a></li>
+            <li><a href="about.html">Leadership Team</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+          </ul>
+
+          <h4 style="margin-top: 18px">Resources</h4>
+          <ul class="footer-list">
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="partnerships.html">Partnerships</a></li>
+            <li><a href="gallery.html">Volunteering</a></li>
+            <li><a href="news.html">Donation</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <h4>Our Work</h4>
+          <ul class="footer-list">
+            <li><a href="projectDone.html">Social Services</a></li>
+            <li><a href="projectDone.html">Religious Mass Marriages</a></li>
+            <li><a href="projectDone.html">Sports Achievements</a></li>
+            <li><a href="projectDone.html">Health Camps</a></li>
+            <li>
+              <a href="projectDone.html">Events & Cultural Activities</a>
+            </li>
+          </ul>
+
+          <h4 style="margin-top: 18px">Certificates</h4>
+          <ul class="footer-list">
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="expenses.html">Expenses</a></li>
+            <li><a href="recoginition.html">Recoginition</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact + Donors + Social -->
+        <div class="footer-col">
+          <h4>Contact Details</h4>
+          <p>
+            Email:<br />
+            <a href="mailto:prakashnandurkar9575@gmail.com"
+              >prakashnandurkar9575@gmail.com</a
+            ><br />
+            <a href="mailto:spmtrustytl@gmail.com">spmtrustytl@gmail.com</a>
+          </p>
+
+          <p>
+            Phone:<br />
+            <a href="tel:+919011503530">9011503530</a>,
+            <a href="tel:+919763448555">9763448555</a>
+          </p>
+
+          <p><strong>Secretary:</strong><br />Dr. Prakash Nandurkar</p>
+
+          <h4 style="margin-top: 18px">Major Donors</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="https://www.nseindia.com/"
+                >National Stock Exchange, Mumbai</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.owenscorning.com/en-in/composites/showcases/india"
+                >Owens Corning India</a
+              >
+            </li>
+            <li><a href="https://ekam.ngo/">Ekam Foundation</a></li>
+            <li>
+              <a href="https://www.bv.com/">Black & Veatch Pvt. Ltd.</a>
+            </li>
+          </ul>
+
+          <!-- Contact Us Button -->
+          <div class="footer-btn-container">
+            <a href="contactUs.html" class="footer-btn">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2025 SPM — Sri Satya Sai Sanjeevani Eye Hospital | Designed &
+          Developed by <b>Guru Software Solutions</b> All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

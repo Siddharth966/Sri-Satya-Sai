@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awards & Achievements | SPM Trust</title>
-
+    <link rel="stylesheet" href="styles.css" />
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       body {
         margin: 0;
@@ -106,16 +110,132 @@
         }
       }
 
-      footer {
-        text-align: center;
-        padding: 20px;
-        color: #777;
-        margin-top: 40px;
+      /* DEFAULT — Desktop (large screen) */
+.footer-summaries {
+  margin-top: 1400px !important;
+}
+
+/* Tablet (screen smaller → more margin needed) */
+@media (max-width: 1024px) {
+  .footer-summaries {
+    margin-top: 1400px !important;
+  }
+}
+
+/* Smaller tablet */
+@media (max-width: 768px) {
+  .footer-summaries {
+    margin-top: 1500px !important;
+  }
+}
+
+
+/* Small mobile */
+@media (max-width: 426px) {
+  .footer-summaries {
+    margin-top: 2000px !important;
+  }
+}
+
+   /* Marquee Container */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background: #0b6b71;
+        padding: 8px 0;
+        position: relative;
       }
+
+      /* Track */
+      .marquee-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollLoop 15s linear infinite;
+      }
+
+      /* Text */
+      .marquee-track span {
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+      }
+
+      /* Continuous Loop Animation */
+      @keyframes scrollLoop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
     </style>
   </head>
 
   <body>
+      <!-- navbar -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Sri Satya Sai logo" class="logo" />
+        </a>
+
+        <input type="checkbox" id="menu-check" class="menu-check" />
+
+        <label for="menu-check" class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Resources</a>
+            <div class="dropdown-content">
+              <a href="gallery.html">Gallery</a>
+              <a href="goals.html">News</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Support Us</a>
+            <div class="dropdown-content">
+              <a href="partnerships.html">Partnerships</a>
+              <a href="vision.html">Volunteering</a>
+              <a href="goals.html">Donations</a>
+            </div>
+          </div>
+
+          <a href="recoginition.html">Recognitions</a>
+
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Our Work</a>
+            <div class="dropdown-content">
+              <a href="projectDone.html">Activities</a>
+              <a href="expenses.html">Expenses</a>
+              <a href="achievements.html">Achievements</a>
+            </div>
+          </div>
+          <a href="contactUs.html">Contact Us</a>
+        </nav>
+        <a href="#"><Button class="footer-btn">❤️DONATE</Button></a>
+      </div>
+    </header>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <span>
+          Welcome to Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye
+          Hospital • Vision for All — Free Eye Care Initiative • Welcome to
+          Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital •
+          Vision for All — Free Eye Care Initiative •
+        </span>
+      </div>
+    </div>
+
     <div class="container">
       <h1>Awards & Achievements</h1>
       <p class="subtitle">
@@ -178,7 +298,162 @@
         </div>
       </div>
 
-      <footer>© 2025 SPM Trust — Awards & Achievements Section</footer>
+     
+     
     </div>
+      <!-- Footer -->
+      <footer class="footer footer-summaries">
+        <div class="footer-container">
+          <!-- Column 1: Logo + Trust Info -->
+          <div class="footer-col">
+            <img src="logo.png" alt="Hospital Logo" class="footer-logo" />
+            <h3>Satchikitsa Prasarak Mandal</h3>
+            <p><strong>Sri Satya Sai Sanjeevani Eye Hospital</strong></p>
+            <p>
+              Shri Satya Sai Vidya Nagari,<br />
+              Dr. Nandurkar Vidyalaya Campus,<br />
+              Yavatmal, Maharashtra - 445001.
+            </p>
+            <p class="footer-tagline">
+              Vision for All — Free Eye Care & Social Service Initiative
+            </p>
+
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/"
+                class="fa-icon"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a
+                href="https://twitter.com/"
+                class="fa-icon"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/"
+                class="fa-icon"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+              <a
+                href="https://www.instagram.com/"
+                class="fa-icon"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a
+                href="https://www.youtube.com/"
+                class="fa-icon"
+                aria-label="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer-col">
+            <h4>About Us</h4>
+            <ul class="footer-list">
+              <li><a href="about.html">Who We Are</a></li>
+              <li><a href="about.html">Vision & Mission</a></li>
+              <li><a href="about.html">Goals & Objectives</a></li>
+              <li><a href="about.html">Leadership Team</a></li>
+              <li><a href="achievements.html">Achievements</a></li>
+            </ul>
+
+            <h4 style="margin-top: 18px">Resources</h4>
+            <ul class="footer-list">
+              <li><a href="news.html">News</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="partnerships.html">Partnerships</a></li>
+              <li><a href="gallery.html">Volunteering</a></li>
+              <li><a href="news.html">Donation</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="footer-col">
+            <h4>Our Work</h4>
+            <ul class="footer-list">
+              <li><a href="projectDone.html">Social Services</a></li>
+              <li><a href="projectDone.html">Religious Mass Marriages</a></li>
+              <li><a href="projectDone.html">Sports Achievements</a></li>
+              <li><a href="projectDone.html">Health Camps</a></li>
+              <li>
+                <a href="projectDone.html">Events & Cultural Activities</a>
+              </li>
+            </ul>
+
+            <h4 style="margin-top: 18px">Certificates</h4>
+            <ul class="footer-list">
+              <li><a href="achievements.html">Achievements</a></li>
+              <li><a href="expenses.html">Expenses</a></li>
+              <li><a href="recoginition.html">Recoginition</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact + Donors + Social -->
+          <div class="footer-col">
+            <h4>Contact Details</h4>
+            <p>
+              Email:<br />
+              <a href="mailto:prakashnandurkar9575@gmail.com"
+                >prakashnandurkar9575@gmail.com</a
+              ><br />
+              <a href="mailto:spmtrustytl@gmail.com">spmtrustytl@gmail.com</a>
+            </p>
+
+            <p>
+              Phone:<br />
+              <a href="tel:+919011503530">9011503530</a>,
+              <a href="tel:+919763448555">9763448555</a>
+            </p>
+
+            <p><strong>Secretary:</strong><br />Dr. Prakash Nandurkar</p>
+
+            <h4 style="margin-top: 18px">Major Donors</h4>
+            <ul class="footer-list">
+              <li>
+                <a href="https://www.nseindia.com/"
+                  >National Stock Exchange, Mumbai</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.owenscorning.com/en-in/composites/showcases/india"
+                  >Owens Corning India</a
+                >
+              </li>
+              <li><a href="https://ekam.ngo/">Ekam Foundation</a></li>
+              <li>
+                <a href="https://www.bv.com/">Black & Veatch Pvt. Ltd.</a>
+              </li>
+            </ul>
+
+            <!-- Contact Us Button -->
+            <div class="footer-btn-container">
+              <a href="contactUs.html" class="footer-btn">Contact Us</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2025 SPM — Sri Satya Sai Sanjeevani Eye
+            Hospital | Designed & Developed by <b>Guru Software Solutions</b> All Rights Reserved
+          </p>
+        </div>
+      </footer>
   </body>
 </html>

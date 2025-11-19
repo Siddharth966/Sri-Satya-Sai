@@ -1,272 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partnership & Support | SPM Trust</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partnership & Support | SPM Trust</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #eef7f7;
+      }
 
-<style>
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #eef7f7;
-  }
+      .container {
+        width: 95%;
+        max-width: 1150px;
+        margin: 30px auto;
+      }
 
-  .container {
-    width: 95%;
-    max-width: 1150px;
-    margin: 30px auto;
-  }
+      h1 {
+        text-align: center;
+        color: #0b6b71;
+        margin-bottom: 20px;
+        animation: fadeSlideDown 0.8s ease forwards;
+      }
 
-  h1 {
-    text-align: center;
-    color: #0b6b71;
-    margin-bottom: 20px;
-  }
+      @keyframes fadeSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .partnership-section {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 22px;
-  }
+      /* INTRO SECTION */
+      .card {
+        background: white;
+        padding: 40px;
+        border-radius: 14px;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+        animation: fadeUp 0.8s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-  @media(max-width: 980px) {
-    .partnership-section {
-      grid-template-columns: 1fr;
-    }
-  }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .card {
-  
-    background: white;
-    padding: 60px;
-    border-radius: 14px;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
-    animation: fadeIn 0.6s ease forwards;
-  }
+      h2 {
+        color: #0b6b71;
+        margin-top: 0;
+        animation: fadeLeft 0.8s ease forwards;
+      }
 
-  @keyframes fadeIn {
-    from {opacity:0; transform:translateY(18px);}
-    to {opacity:1; transform:translateY(0);}
-  }
+      @keyframes fadeLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-  h2 {
-    color: #0b6b71;
-    margin-top: 0;
-  }
+      p,
+      li {
+        color: #444;
+        line-height: 1.6;
+      }
 
-  p {
-    color: #444;
-    line-height: 1.6;
-  }
+      ul {
+        margin-left: 15px;
+      }
 
-  /* FORM CARD */
-  .form-card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+      /* DONOR PARTNERS */
+      .donor-section {
+        margin-top: 40px;
+      }
 
-  input, select, textarea {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid #cddcdc;
-    font-family: inherit;
-    outline: none;
-    transition: 0.2s ease;
-  }
+      .donor-section h2 {
+        text-align: center;
+      }
 
-  input:focus, textarea:focus, select:focus {
-    border-color: #0b6b71;
-    box-shadow: 0 0 4px rgba(11,107,113,0.3);
-  }
+      .donor-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 20px;
+        font-size: 18px;
+      }
 
-  textarea {
-    min-height: 110px;
-    resize: vertical;
-  }
+      .donor-item {
+        display: block;
+        text-decoration: none;
+        color: #0b6b71;
+        background: white;
+        padding: 16px 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        font-weight: 600;
+        margin-bottom: 10px;
+        transition: 0.3s ease;
+      }
 
-  .btn {
-    background: #0b6b71;
-    color: white;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
+      .donor-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+        background: #0b6b71;
+        color: white;
+      }
 
-  .btn:hover {
-    background: #064e52;
-  }
+      /* PARTNERSHIP CATEGORIES */
+      .categories {
+        margin-top: 50px;
+      }
 
-  .success-msg {
-    display: none;
-    margin-top: 10px;
-    padding: 12px;
-    background: #e1f7e8;
-    border-radius: 8px;
-    color: #287d46;
-    font-weight: 600;
-    animation: fadeIn 0.3s ease forwards;
-  }
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        width: 100%;
+      }
 
-  /* PARTNER LOGOS */
-  .logo-section {
-    margin-top: 40px;
-  }
+      .cat-card {
+        background: white;
+        padding: 0 0 25px 0;
+        border-radius: 16px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+        transition: 0.35s ease;
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-  .logo-section h2 {
-    text-align: center;
-  }
+      .cat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+      }
 
-  .logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 22px;
-    margin-top: 20px;
-  }
+      .cat-img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        display: block;
+        transition: 0.3s ease;
+      }
 
-  .logo-card {
-    width: 160px;
-    height: 110px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    animation: fadeIn 0.6s ease forwards;
-  }
+      .cat-card:hover .cat-img {
+        transform: scale(1.05);
+      }
 
-  .logo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 12px;
-    filter: grayscale(30%);
-    transition: 0.3s ease;
-  }
+      .cat-card h3 {
+        color: #0b6b71;
+        font-size: 20px;
+        margin: 15px 0 8px;
+        font-weight: 700;
+      }
 
-  .logo-card img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.07);
-  }
+      .cat-card p {
+        padding: 0 15px;
+        font-size: 15px;
+        color: #444;
+        line-height: 1.5;
+      }
 
-  footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-    margin-top: 40px;
-  }
-</style>
+      /* RESPONSIVE FIXES */
+      @media (max-width: 600px) {
+        .cat-img {
+          height: 150px;
+        }
+        .cat-card h3 {
+          font-size: 18px;
+        }
+        .cat-card p {
+          font-size: 14px;
+        }
+      }
 
-<script>
-function submitPartnerForm(event) {
-  event.preventDefault();
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #777;
+        margin-top: 40px;
+      }
+       /* Marquee Container */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background: #0b6b71;
+        padding: 8px 0;
+        position: relative;
+      }
 
-  document.getElementById("successMsg").style.display = "block";
+      /* Track */
+      .marquee-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollLoop 15s linear infinite;
+      }
 
-  setTimeout(() => {
-    document.getElementById("successMsg").style.display = "none";
-    document.getElementById("partnerForm").reset();
-  }, 2500);
-}
-</script>
+      /* Text */
+      .marquee-track span {
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+      }
 
-</head>
-<body>
+      /* Continuous Loop Animation */
+      @keyframes scrollLoop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
 
-<div class="container">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll(
+          '.card, .donor-item, .cat-card'
+        )
 
-  <h1>Partnership & Support</h1>
+        const observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1'
+                entry.target.style.transform = 'translateY(0)'
+              }
+            })
+          },
+          { threshold: 0.2 }
+        )
 
-  <div class="partnership-section">
+        animatedElements.forEach(el => observer.observe(el))
+      })
+    </script>
+  </head>
+  <body>
+   <!-- navbar -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Sri Satya Sai logo" class="logo" />
+        </a>
 
-    <!-- LEFT SIDE DETAILS -->
-    <div class="card">
-      <h2>About Partnership & Support</h2>
+        <input type="checkbox" id="menu-check" class="menu-check" />
 
-      <p>
-        We seek financial support from you / your esteemed organization to help realise this noble initiative.
-        Your valuable CSR contribution will directly support:
-      </p>
+        <label for="menu-check" class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
 
-      <ul>
-        <li>Procurement of medical equipment</li>
-        <li>Operational cost for cataract surgeries</li>
-        <li>Ophthalmic OPD strengthening</li>
-        <li>Ambulance & outreach vehicles</li>
-        <li>Diagnostic & surgical instruments</li>
-      </ul>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
 
-      <p>
-        The project will be sustained through public contributions, government aid and partnerships with agencies.
-        Funds will be allocated as per the Annexure.
-      </p>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Resources</a>
+            <div class="dropdown-content">
+              <a href="gallery.html">Gallery</a>
+              <a href="goals.html">News</a>
+            </div>
+          </div>
 
-      <h2>Why Support Us?</h2>
-      <p>
-        ✓ 80+ years of trust service  
-        ✓ Sustainable impact in rural communities  
-        ✓ Transparent reporting  
-        ✓ Valid CSR & 80G documents  
-        ✓ Proven track record in healthcare  
-      </p>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Support Us</a>
+            <div class="dropdown-content">
+              <a href="partnerships.html">Partnerships</a>
+              <a href="vision.html">Volunteering</a>
+              <a href="goals.html">Donations</a>
+            </div>
+          </div>
+
+          <a href="recoginition.html">Recognitions</a>
+
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Our Work</a>
+            <div class="dropdown-content">
+              <a href="projectDone.html">Activities</a>
+              <a href="expenses.html">Expenses</a>
+              <a href="achievements.html">Achievements</a>
+            </div>
+          </div>
+          <a href="contactUs.html">Contact Us</a>
+        </nav>
+        <a href="#"><Button class="footer-btn">❤️DONATE</Button></a>
+      </div>
+    </header>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <span>
+          Welcome to Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye
+          Hospital • Vision for All — Free Eye Care Initiative • Welcome to
+          Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital •
+          Vision for All — Free Eye Care Initiative •
+        </span>
+      </div>
     </div>
 
-    <!-- RIGHT SIDE: PARTNER FORM -->
-    <div class="card">
-      <h2>Become a Partner</h2>
+    <div class="container">
+      <h1>Partnership & Support</h1>
 
-      <form id="partnerForm" class="form-card" onsubmit="submitPartnerForm(event)">
-        <input type="text" placeholder="Your Full Name" required>
-        <input type="text" placeholder="Organization / Company Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number" required>
+      <!-- INTRO SECTION -->
+      <div class="card">
+        <h2>About Partnership & Support</h2>
+        <p>
+          We seek financial support from you / your esteemed organization to
+          help realise this noble initiative. Your valuable CSR contribution
+          will directly support:
+        </p>
 
-        <select required>
-          <option value="">Select Partnership Type</option>
-          <option>Cataract Surgery Support</option>
-          <option>Diagnostic Equipment Sponsorship</option>
-          <option>OPD & Medicine Support</option>
-          <option>Ambulance / Vehicle Sponsorship</option>
-          <option>General CSR Contribution</option>
-        </select>
+        <ul>
+          <li>Procurement of medical equipment</li>
+          <li>Operational cost for cataract surgeries</li>
+          <li>Ophthalmic OPD strengthening</li>
+          <li>Ambulance & outreach vehicles</li>
+          <li>Diagnostic & surgical instruments</li>
+        </ul>
 
-        <textarea placeholder="Write your message or proposal..." required></textarea>
+        <p>
+          The project will be sustained through public contributions, government
+          aid and partnerships with agencies.
+        </p>
 
-        <button class="btn" type="submit">Submit Partnership Request</button>
+        <h2>Why Support Us?</h2>
+        <p>
+          ✓ 80+ years of trust service ✓ Sustainable impact in rural communities
+          ✓ Transparent reporting ✓ Valid CSR & 80G documents ✓ Proven track
+          record in healthcare
+        </p>
+      </div>
 
-        <div class="success-msg" id="successMsg">
-          Thank you! Your partnership request has been received.
+      <!-- DONOR PARTNERS -->
+      <div class="donor-section">
+        <h2>Our Donor Partners</h2>
+
+        <div class="donor-list">
+          <a
+            href="https://www.nseindia.com/"
+            target="_blank"
+            class="donor-item"
+          >
+            1) National Stock Exchange, Mumbai
+          </a>
+
+          <a
+            href="https://www.owenscorning.com/en-in"
+            target="_blank"
+            class="donor-item"
+          >
+            2) Owens Corning India, Mumbai
+          </a>
+
+          <a
+            href="https://www.ekamoneness.org/"
+            target="_blank"
+            class="donor-item"
+          >
+            3) Ekam Foundation, Mumbai
+          </a>
+
+          <a href="https://www.bv.com/" target="_blank" class="donor-item">
+            4) Black & Veatch Pvt. Ltd., Mumbai
+          </a>
         </div>
-      </form>
+      </div>
+
+      <!-- PARTNERSHIP CATEGORIES -->
+      <div class="categories">
+        <h2 style="text-align: center; margin-bottom: 12px">
+          Partnership Categories
+        </h2>
+
+        <div class="category-grid">
+          <div class="cat-card">
+            <img src="images/cataract.jpg" class="cat-img" />
+            <h3>Cataract Surgery Support</h3>
+            <p>
+              Support life-changing cataract surgeries for rural communities.
+            </p>
+          </div>
+
+          <div class="cat-card">
+            <img src="images/diagnostic.jpg" class="cat-img" />
+            <h3>Diagnostic Equipment</h3>
+            <p>
+              Help procure world-class diagnostic tools for eye-care facilities.
+            </p>
+          </div>
+
+          <div class="cat-card">
+            <img src="images/ambulance.jpg" class="cat-img" />
+            <h3>Ambulance & Outreach Support</h3>
+            <p>
+              Enable patient transportation and rural field outreach programmes.
+            </p>
+          </div>
+
+          <div class="cat-card">
+            <img src="images/opd.jpg" class="cat-img" />
+            <h3>OPD & Medicine Support</h3>
+            <p>
+              Contribute to OPD operations and essential medicine distribution.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-
-  </div>
-
-  <!-- PARTNER LOGOS -->
-  <div class="logo-section">
-    <h2>Our Trusted Partners</h2>
-
-    <div class="logos">
-      <div class="logo-card"><img src="partner1.png"></div>
-      <div class="logo-card"><img src="partner2.png"></div>
-      <div class="logo-card"><img src="partner3.png"></div>
-      <div class="logo-card"><img src="partner4.png"></div>
-      <div class="logo-card"><img src="partner5.png"></div>
-    </div>
-  </div>
-
-  <footer>© 2025 SPM Trust — Partnership & Support Portal</footer>
-
-</div>
-
-</body>
+    
+  </body>
 </html>

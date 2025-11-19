@@ -19,196 +19,220 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-/* GENERAL */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      /* GENERAL */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-  font-family: Poppins, sans-serif;
-}
+      body {
+        font-family: Poppins, sans-serif;
+      }
 
-/* CAROUSEL WRAPPER */
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
-}
+      /* CAROUSEL WRAPPER */
+      .carousel {
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        overflow: hidden;
+      }
 
-/* SLIDES CONTAINER */
-.carousel-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+      /* SLIDES CONTAINER */
+      .carousel-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
 
-/* EACH SLIDE */
-.carousel-item {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: slideShow 12s infinite;
-}
+      /* EACH SLIDE */
+      .carousel-item {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        animation: slideShow 12s infinite;
+      }
 
-.carousel-item:nth-child(1) { animation-delay: 0s; }
-.carousel-item:nth-child(2) { animation-delay: 3s; }
-.carousel-item:nth-child(3) { animation-delay: 6s; }
-.carousel-item:nth-child(4) { animation-delay: 9s; }
+      .carousel-item:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .carousel-item:nth-child(2) {
+        animation-delay: 3s;
+      }
+      .carousel-item:nth-child(3) {
+        animation-delay: 6s;
+      }
+      .carousel-item:nth-child(4) {
+        animation-delay: 9s;
+      }
 
-/* SLIDE IMAGE */
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: zoomEffect 8s ease-in-out infinite;
-}
+      /* SLIDE IMAGE */
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: zoomEffect 8s ease-in-out infinite;
+      }
 
-/* IMAGE ZOOM EFFECT */
-@keyframes zoomEffect {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
+      /* IMAGE ZOOM EFFECT */
+      @keyframes zoomEffect {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-/* SLIDE FADE + SHOW ANIMATION */
-@keyframes slideShow {
-  0% { opacity: 0; }
-  8% { opacity: 1; }
-  25% { opacity: 1; }
-  33% { opacity: 0; }
-  100% { opacity: 0; }
-}
+      /* SLIDE FADE + SHOW ANIMATION */
+      @keyframes slideShow {
+        0% {
+          opacity: 0;
+        }
+        8% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 1;
+        }
+        33% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-.data {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
+      
+      /* Marquee Container */
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        background: #0b6b71;
+        padding: 8px 0;
+        position: relative;
+      }
 
-.data h1 {
-  color:#c6460f;
-  font-size: 2.8rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-}
+      /* Track */
+      .marquee-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scrollLoop 15s linear infinite;
+      }
 
-.data p {
-  margin: 15px 0 25px;
-  font-size: 1.3rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
-.btn-explore {
-  background: rgb(194, 178, 37);
-  color: #eadede;
-  padding: 10px 25px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
+      /* Text */
+      .marquee-track span {
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+      }
 
-.btn-explore:hover {
-  background: #ff8800;
-  color: white;
+      /* Continuous Loop Animation */
+      @keyframes scrollLoop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
 
-</style>
+      /* Mobile Responsive */
+      @media (max-width: 600px) {
+        .marquee-track span {
+          font-size: 14px;
+        }
+        .marquee-container {
+          padding: 6px 0;
+        }
+      }
+    </style>
   </head>
   <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Sri Satya Sai logo" class="logo" />
+        </a>
 
-   <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html">
-      <img src="logo.png" alt="Sri Satya Sai logo" class="logo" />
-    </a>
+        <input type="checkbox" id="menu-check" class="menu-check" />
 
-    <input type="checkbox" id="menu-check" class="menu-check">
+        <label for="menu-check" class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
 
-    <label for="menu-check" class="menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
 
-    <nav class="main-nav" id="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Resources</a>
+            <div class="dropdown-content">
+              <a href="gallery.html">Gallery</a>
+              <a href="goals.html">News</a>
+            </div>
+          </div>
 
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Resources</a>
-        <div class="dropdown-content">
-          <a href="gallery.html">Gallery</a>
-          <a href="goals.html">News</a>
-        </div>
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Support Us</a>
+            <div class="dropdown-content">
+              <a href="partnerships.html">Partnerships</a>
+              <a href="vision.html">Volunteering</a>
+              <a href="goals.html">Donations</a>
+            </div>
+          </div>
+
+          <a href="recoginition.html">Recognitions</a>
+
+          <div class="dropdown">
+            <a href="#" class="dropbtn">Our Work</a>
+            <div class="dropdown-content">
+              <a href="projectDone.html">Activities</a>
+              <a href="expenses.html">Expenses</a>
+              <a href="achievements.html">Achievements</a>
+            </div>
+          </div>
+          <a href="contactUs.html">Contact Us</a>
+        </nav>
+        <a href="#"><Button class="footer-btn">❤️DONATE</Button></a>
       </div>
-
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Support Us</a>
-        <div class="dropdown-content">
-          <a href="partnerships.html">Partnerships</a>
-          <a href="vision.html">Volunteering</a>
-          <a href="goals.html">Donations</a>
-        </div>
+    </header>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <span>
+          Welcome to Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye
+          Hospital • Vision for All — Free Eye Care Initiative • Welcome to
+          Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital •
+          Vision for All — Free Eye Care Initiative •
+        </span>
       </div>
-
-      <a href="recognition.html">Recognitions</a>
-      
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Our Work</a>
-        <div class="dropdown-content">
-          <a href="projectDone.html">Activities</a>
-          <a href="expenses.html">Expenses</a>
-          <a href="achievements.html">Achievements</a>
-        </div>
-      </div>
-      <a href="contactUs.html">Contact Us</a>
-    </nav>
-    <a href="#"><Button class="footer-btn">❤️DONATE</Button></a>
-  </div>
-</header>
-
+    </div>
+    
     <main>
-<div class="carousel">
-  <div class="carousel-inner">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="images/crausal1.jpg" />
+          </div>
 
-    <div class="carousel-item">
-      <img src="images/crausal1.jpg" />
-    </div>
+          <div class="carousel-item">
+            <img src="images/crausal2.jpg" />
+          </div>
 
-    <div class="carousel-item">
-      <img src="images/crausal2.jpg" />
-    </div>
+          <div class="carousel-item">
+            <img src="images/crausal3.jpg" />
+          </div>
 
-    <div class="carousel-item">
-      <img src="images/crausal3.jpg" />
-    </div>
-
-    <div class="carousel-item">
-      <img src="images/medical3.jpg" />
-    </div>
-
-  </div>
-</div>
-
-<section class="data">
-  <div class="data-content">
-    <h1>Welcome to Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye Hospital</h1>
-    <p>Vision for All — Free Eye Care Initiative</p>
-    <a href="about.html"><button class="btn-explore">EXPLORE →</button></a>
-  </div>
-</section>
+          <div class="carousel-item">
+            <img src="images/medical3.jpg" />
+          </div>
+        </div>
+      </div>
 
       <section class="hero">
         <div class="hero-content">
@@ -289,53 +313,73 @@ body {
       </section>
 
       <!-- welfare -->
-<div class="containerrs">
-  <h1>SOCIALS WORK</h1>
+      <div class="containerrs">
+        <h1>SOCIALS WORK</h1>
 
-  <!-- Item 1 -->
-  <div class="welfare-item welfare-item-1">
-    <div class="welfare-image-container">
-      <img src="images/merriage2.jpg" class="welfare-image" />
-    </div>
-    <div class="welfare-text-container">
-      <h2 class="project-title">Social Welfare: Multi-Religion Mass Marriage</h2>
-      <p class="description">
-        A large-scale initiative promoting unity and equality by organizing mass marriages across religions.
-      </p>
-      <ul class="stats">
-        <li><span class="counter" data-target="1500">0</span>+ couples married</li>
-        <li><span class="counter" data-target="20">0</span>+ second-generation marriages</li>
-        <li><span class="counter" data-target="90">0</span>% reduction in dowry deaths</li>
-      </ul>
-    </div>
-  </div>
+        <!-- Item 1 -->
+        <div class="welfare-item welfare-item-1">
+          <div class="welfare-image-container">
+            <img src="images/merriage2.jpg" class="welfare-image" />
+          </div>
+          <div class="welfare-text-container">
+            <h2 class="project-title">
+              Social Welfare: Multi-Religion Mass Marriage
+            </h2>
+            <p class="description">
+              A large-scale initiative promoting unity and equality by
+              organizing mass marriages across religions.
+            </p>
+            <ul class="stats">
+              <li>
+                <span class="counter" data-target="1500">0</span>+ couples
+                married
+              </li>
+              <li>
+                <span class="counter" data-target="20">0</span>+
+                second-generation marriages
+              </li>
+              <li>
+                <span class="counter" data-target="90">0</span>% reduction in
+                dowry deaths
+              </li>
+            </ul>
+          </div>
+        </div>
 
-  <!-- Item 2 -->
-  <div class="welfare-item welfare-item-2">
-    <div class="welfare-text-container">
-      <h2 class="project-title">Social Welfare: Feed the Hungry (Narayana Seva)</h2>
-      <p class="description">
-        A daily food distribution program serving nutritious meals to the underprivileged.
-      </p>
-      <ul class="stats">
-        <li><span class="counter" data-target="15000">0</span> relatives fed</li>
-        <li><span class="counter" data-target="800">0</span> kg food served daily</li>
-        <li><span class="counter" data-target="35">0</span> years of seva</li>
-      </ul>
-    </div>
+        <!-- Item 2 -->
+        <div class="welfare-item welfare-item-2">
+          <div class="welfare-text-container">
+            <h2 class="project-title">
+              Social Welfare: Feed the Hungry (Narayana Seva)
+            </h2>
+            <p class="description">
+              A daily food distribution program serving nutritious meals to the
+              underprivileged.
+            </p>
+            <ul class="stats">
+              <li>
+                <span class="counter" data-target="15000">0</span> relatives fed
+              </li>
+              <li>
+                <span class="counter" data-target="800">0</span> kg food served
+                daily
+              </li>
+              <li>
+                <span class="counter" data-target="35">0</span> years of seva
+              </li>
+            </ul>
+          </div>
 
-    <div class="welfare-image-container">
-      <img src="images/serve2.jpg" class="welfare-image" />
-    </div>
-  </div>
+          <div class="welfare-image-container">
+            <img src="images/serve2.jpg" class="welfare-image" />
+          </div>
+        </div>
 
-  <!-- Button -->
-  <div class="view-more">
-    <a href="gallery.html" class="view-more-btn">View More Activities</a>
-  </div>
-</div>
-
-
+        <!-- Button -->
+        <div class="view-more">
+          <a href="gallery.html" class="view-more-btn">View More Activities</a>
+        </div>
+      </div>
 
       <!-- Footer -->
       <footer class="footer">
@@ -486,83 +530,96 @@ body {
 
         <div class="footer-bottom">
           <p>
-            © 2025 Satchikitsa Prasarak Mandal — Sri Satya Sai Sanjeevani Eye
-            Hospital | All Rights Reserved
+            © 2025 SPM — Sri Satya Sai Sanjeevani Eye Hospital | Designed &
+            Developed by <b>Guru Software Solutions</b> All Rights Reserved
           </p>
         </div>
       </footer>
     </main>
   </body>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* Counter Animation */
+      function animateCounters() {
+        const counters = document.querySelectorAll('.counter')
 
-  /* Counter Animation */
-  function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target')
+          const speed = 200
+          const increment = target / speed
 
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      const speed = 200;
-      const increment = target / speed;
+          const li = counter.closest('li')
 
-      const li = counter.closest('li');
+          if (li) li.classList.add('js-data', 'animating')
 
-      if (li) li.classList.add('js-data', 'animating');
+          const updateCount = () => {
+            const current = +counter.innerText
 
-      const updateCount = () => {
-        const current = +counter.innerText;
-
-        if (current < target) {
-          counter.innerText = Math.ceil(current + increment);
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-          if (li) {
-            setTimeout(() => li.classList.remove('animating'), 600);
+            if (current < target) {
+              counter.innerText = Math.ceil(current + increment)
+              setTimeout(updateCount, 20)
+            } else {
+              counter.innerText = target
+              if (li) {
+                setTimeout(() => li.classList.remove('animating'), 600)
+              }
+            }
           }
-        }
-      };
 
-      updateCount();
-    });
-  }
-
-  /* SECTION TO OBSERVE */
-  const section = document.querySelector('.containerrs');
-
-  if (!section) return;
-
-  let started = false;
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !started) {
-
-        started = true;
-
-        /* 1. Trigger Counter */
-        animateCounters();
-
-        /* 2. Trigger Animations */
-        const animatedElements = section.querySelectorAll(
-          '.welfare-image-container, .welfare-text-container'
-        );
-
-        animatedElements.forEach(el => {
-          el.classList.add("animate-now");
-        });
-
-        observer.disconnect();
+          updateCount()
+        })
       }
-    });
-  }, {
-    threshold: 0.3  // start when 30% of section is visible
+
+      /* SECTION TO OBSERVE */
+      const section = document.querySelector('.containerrs')
+
+      if (!section) return
+
+      let started = false
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !started) {
+              started = true
+
+              /* 1. Trigger Counter */
+              animateCounters()
+
+              /* 2. Trigger Animations */
+              const animatedElements = section.querySelectorAll(
+                '.welfare-image-container, .welfare-text-container'
+              )
+
+              animatedElements.forEach(el => {
+                el.classList.add('animate-now')
+              })
+
+              observer.disconnect()
+            }
+          })
+        },
+        {
+          threshold: 0.3 // start when 30% of section is visible
+        }
+      )
+
+      observer.observe(section)
+    })
+
+    document.addEventListener('click', (e) => {
+    // if clicked element is inside a .dropdown-content and is an <a>, close the parent checkbox
+    const a = e.target.closest('.dropdown-content a');
+    if (!a) return;
+
+    // find nearest dropdown wrapper
+    const dropdown = a.closest('.dropdown');
+    if (!dropdown) return;
+
+    // find the checkbox inside that wrapper and uncheck it
+    const chk = dropdown.querySelector('.drop-check');
+    if (chk) chk.checked = false;
   });
-
-  observer.observe(section);
-});
-</script>
-
-
+  </script>
 </html>
